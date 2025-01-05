@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #000;
+    overflow: hidden;
+}
+
+.stopwatch-container {
+    text-align: center;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 25px;
+    padding: 50px;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+    animation: scaleUp 0.7s ease-in-out forwards;
+}
+/*using animation for make creative */
+@keyframes scaleUp {
+    0% { transform: scale(0.9); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+#time {
+    font-size: 5rem;
+    color: #00ffcc;
+    font-weight: bold;
+    letter-spacing: 8px;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.8);
+    margin-bottom: 20px;
+    animation: fadeInGlow 2s ease-out forwards;
+}
+
+@keyframes fadeInGlow {
+    0% { opacity: 0; text-shadow: 0 0 15px rgba(0, 255, 204, 0); }
+    100% { opacity: 1; text-shadow: 0 0 15px rgba(0, 255, 204, 0.8); }
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 1.3rem;
+    margin: 15px;
+    cursor: pointer;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(45deg, #ff00cc, #00ccff);
+    color: white;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 204, 0.5);
+    background: linear-gradient(45deg, #ff66cc, #33ccff);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
+
+button:focus {
+    outline: none;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.circle-animation {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    border: 5px solid rgba(0, 255, 204, 0.3);
+    animation: pulseCircle 2s infinite ease-in-out;
+    z-index: -1;
+}
+
+@keyframes pulseCircle {
+    0% {
+        transform: scale(1);
+        opacity: 0.5;
+        border-color: rgba(0, 255, 204, 0.3);
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.2;
+        border-color: rgba(0, 255, 204, 0.1);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.5;
+        border-color: rgba(0, 255, 204, 0.3);
+    }
+}
+
+@media (max-width: 600px) {
+    #time {
+        font-size: 3.5rem;
+    }
+
+    .circle-animation {
+        width: 200px;
+        height: 200px;
+    }
+
+    button {
+        padding: 10px 20px;
+    }
+}
